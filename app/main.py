@@ -1,5 +1,5 @@
 import logging
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,Depends
 from app.models import Request, Response
 from app.parser import parse_document
 from app.chunker import chunk_text
@@ -9,6 +9,7 @@ from app.llm import generate_answer
 from typing import List
 from dotenv import load_dotenv
 from app.logging_config import setup_logger
+from app.auth import verify_token
 
 load_dotenv()
 
@@ -24,8 +25,16 @@ except Exception:
     raise
 
 
-@app.post("/process", response_model=Response)
-def process_qa(data: Request):
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "message": "HackRx API is running"}
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to HackRx API", "endpoint": "/api/v1/hackrx/run"}
+
+@app.post("/api/v1/hackrx/run", response_model=Response)
+def process_qa(data: Request, token: str = Depends(verify_token)):
     try:
         logger.info(
             f"Received QA request with URL: {data.document_url} and {len(data.questions)} questions"
