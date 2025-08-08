@@ -1,0 +1,213 @@
+{"asctime": "2025-08-08 10:06:01,139", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:06:01,142", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:06:01,143", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:13:46,511", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:13:46,520", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:13:46,521", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:15:57,871", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:15:57,872", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:15:57,874", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:15:57,898", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 10:15:57,899", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 10:16:46,535", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 10:16:46,537", "name": "app.parser", "levelname": "ERROR", "message": "PyPDF2 not installed. Please add it to requirements to parse PDFs."}
+{"asctime": "2025-08-08 10:16:46,539", "name": "app.parser", "levelname": "WARNING", "message": "PDF detected but no text extracted; falling back to HTML parsing if possible."}
+{"asctime": "2025-08-08 10:16:47,099", "name": "app.parser", "levelname": "INFO", "message": "Successfully parsed the url https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 10:16:47,104", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 625477 characters."}
+{"asctime": "2025-08-08 10:16:47,105", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 10:16:47,206", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 10:16:47,207", "name": "app.main", "levelname": "INFO", "message": "Generated 834 text chunks."}
+{"asctime": "2025-08-08 10:18:16,986", "name": "app.embedder", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 10:18:16,986", "name": "app.main", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 10:18:18,042", "name": "app.vector_store", "levelname": "INFO", "message": "Successfully upserted 834 vectors into Qdrant collection 'documents'."}
+{"asctime": "2025-08-08 10:18:18,045", "name": "app.main", "levelname": "INFO", "message": "Document chunks stored in vector store."}
+{"asctime": "2025-08-08 10:18:18,049", "name": "app.main", "levelname": "INFO", "message": "Processing question 1: What is the grace period for premium payment under the National Parivar Mediclaim Plus Policy?"}
+{"asctime": "2025-08-08 10:18:18,088", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 10:18:18,100", "name": "app.llm", "levelname": "ERROR", "message": "Error while generating answer: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\n\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. \n\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\n\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742\n", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\app\\llm.py\", line 41, in generate_answer\n    response = openai.ChatCompletion.create(\n        model=model,\n    ...<2 lines>...\n        temperature=0.2,\n    )\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\lib\\_old_api.py\", line 39, in __call__\n    raise APIRemovedInV1(symbol=self._symbol)\nopenai.lib._old_api.APIRemovedInV1: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\n\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. \n\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\n\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742\n"}
+{"asctime": "2025-08-08 10:18:18,109", "name": "app.main", "levelname": "INFO", "message": "Answered question 1"}
+{"asctime": "2025-08-08 10:18:18,110", "name": "app.main", "levelname": "INFO", "message": "Processing question 2: What is the waiting period for pre-existing diseases (PED) to be covered?"}
+{"asctime": "2025-08-08 10:18:18,160", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 10:18:18,172", "name": "app.llm", "levelname": "ERROR", "message": "Error while generating answer: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\n\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. \n\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\n\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742\n", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\app\\llm.py\", line 41, in generate_answer\n    response = openai.ChatCompletion.create(\n        model=model,\n    ...<2 lines>...\n        temperature=0.2,\n    )\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\lib\\_old_api.py\", line 39, in __call__\n    raise APIRemovedInV1(symbol=self._symbol)\nopenai.lib._old_api.APIRemovedInV1: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\n\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. \n\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\n\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742\n"}
+{"asctime": "2025-08-08 10:18:18,186", "name": "app.main", "levelname": "INFO", "message": "Answered question 2"}
+{"asctime": "2025-08-08 10:20:26,142", "name": "app.llm", "levelname": "ERROR", "message": "OPENAI_API_KEY not set in environment."}
+{"asctime": "2025-08-08 10:21:54,926", "name": "app.llm", "levelname": "ERROR", "message": "OPENAI_API_KEY not set in environment."}
+{"asctime": "2025-08-08 10:24:55,968", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:24:55,971", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:24:55,973", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:24:55,974", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:25:42,165", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:25:42,171", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:25:42,175", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:25:42,177", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:26:11,775", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 10:26:11,777", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 10:26:45,676", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 10:26:45,678", "name": "app.parser", "levelname": "ERROR", "message": "PyPDF2 not installed. Please add it to requirements to parse PDFs."}
+{"asctime": "2025-08-08 10:26:45,679", "name": "app.parser", "levelname": "WARNING", "message": "PDF detected but no text extracted; falling back to HTML parsing if possible."}
+{"asctime": "2025-08-08 10:26:46,248", "name": "app.parser", "levelname": "INFO", "message": "Successfully parsed the url https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 10:26:46,260", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 625477 characters."}
+{"asctime": "2025-08-08 10:26:46,261", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 10:26:46,413", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 10:26:46,414", "name": "app.main", "levelname": "INFO", "message": "Generated 834 text chunks."}
+{"asctime": "2025-08-08 10:28:33,778", "name": "app.embedder", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 10:28:33,779", "name": "app.main", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 10:28:34,717", "name": "app.vector_store", "levelname": "INFO", "message": "Successfully upserted 834 vectors into Qdrant collection 'documents'."}
+{"asctime": "2025-08-08 10:28:34,724", "name": "app.main", "levelname": "INFO", "message": "Document chunks stored in vector store."}
+{"asctime": "2025-08-08 10:28:34,725", "name": "app.main", "levelname": "INFO", "message": "Processing question 1: What is the grace period for premium payment under the National Parivar Mediclaim Plus Policy?"}
+{"asctime": "2025-08-08 10:28:34,770", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 10:28:46,715", "name": "app.llm", "levelname": "ERROR", "message": "OpenAI API call failed.", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\app\\llm.py\", line 38, in generate_answer\n    response = client.chat.completions.create(\n        model=model,\n    ...<2 lines>...\n        temperature=0.2,\n    )\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_utils\\_utils.py\", line 287, in wrapper\n    return func(*args, **kwargs)\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py\", line 1135, in create\n    return self._post(\n           ~~~~~~~~~~^\n        \"/chat/completions\",\n        ^^^^^^^^^^^^^^^^^^^^\n    ...<45 lines>...\n        stream_cls=Stream[ChatCompletionChunk],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_base_client.py\", line 1259, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_base_client.py\", line 1047, in request\n    raise self._make_status_error_from_response(err.response) from None\nopenai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"}
+{"asctime": "2025-08-08 10:28:46,734", "name": "app.main", "levelname": "INFO", "message": "Answered question 1"}
+{"asctime": "2025-08-08 10:28:46,735", "name": "app.main", "levelname": "INFO", "message": "Processing question 2: What is the waiting period for pre-existing diseases (PED) to be covered?"}
+{"asctime": "2025-08-08 10:28:46,789", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 10:28:53,452", "name": "app.llm", "levelname": "ERROR", "message": "OpenAI API call failed.", "exc_info": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\app\\llm.py\", line 38, in generate_answer\n    response = client.chat.completions.create(\n        model=model,\n    ...<2 lines>...\n        temperature=0.2,\n    )\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_utils\\_utils.py\", line 287, in wrapper\n    return func(*args, **kwargs)\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\resources\\chat\\completions\\completions.py\", line 1135, in create\n    return self._post(\n           ~~~~~~~~~~^\n        \"/chat/completions\",\n        ^^^^^^^^^^^^^^^^^^^^\n    ...<45 lines>...\n        stream_cls=Stream[ChatCompletionChunk],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_base_client.py\", line 1259, in post\n    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))\n                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Desktop\\prof\\hackRx\\hackrxenv\\Lib\\site-packages\\openai\\_base_client.py\", line 1047, in request\n    raise self._make_status_error_from_response(err.response) from None\nopenai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}"}
+{"asctime": "2025-08-08 10:28:53,463", "name": "app.main", "levelname": "INFO", "message": "Answered question 2"}
+{"asctime": "2025-08-08 10:39:17,553", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:39:17,557", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:39:17,559", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:39:17,559", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:43:50,923", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:43:50,928", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:43:50,937", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:43:50,945", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:45:40,853", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:45:40,860", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:45:40,861", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:45:40,864", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:47:03,949", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:47:03,952", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:47:03,953", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:47:03,954", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 10:47:46,344", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 10:47:46,357", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 10:47:46,365", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 10:47:46,366", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:53:23,706", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:53:23,709", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:53:23,712", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:53:23,714", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:53:50,270", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:53:50,291", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:53:50,292", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:53:50,293", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:54:15,149", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:54:15,153", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:54:15,162", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:54:15,168", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:56:40,733", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:56:40,742", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:56:40,745", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:56:40,752", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:58:24,245", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:58:24,247", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:58:24,248", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:58:24,249", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:58:50,188", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:58:50,192", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:58:50,193", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:58:50,194", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 13:59:30,577", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 13:59:30,580", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 13:59:30,581", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 13:59:30,581", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:00:16,504", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 14:00:16,516", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 14:00:16,522", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 14:00:16,533", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:00:16,617", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 14:00:16,619", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:00:18,763", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 14:00:18,767", "name": "app.parser", "levelname": "ERROR", "message": "PyPDF2 not installed. Please add it to requirements to parse PDFs."}
+{"asctime": "2025-08-08 14:00:18,774", "name": "app.parser", "levelname": "WARNING", "message": "PDF detected but no text extracted; falling back to HTML parsing if possible."}
+{"asctime": "2025-08-08 14:00:19,511", "name": "app.parser", "levelname": "INFO", "message": "Successfully parsed the url https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:00:19,519", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 625477 characters."}
+{"asctime": "2025-08-08 14:00:19,520", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 14:00:19,695", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 14:00:19,697", "name": "app.main", "levelname": "INFO", "message": "Generated 834 text chunks."}
+{"asctime": "2025-08-08 14:00:23,143", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 14:00:23,180", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 14:00:23,212", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 14:00:23,425", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:02:26,874", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 14:02:26,881", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:02:52,055", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 14:02:52,059", "name": "app.parser", "levelname": "ERROR", "message": "PyPDF2 not installed. Please add it to requirements to parse PDFs."}
+{"asctime": "2025-08-08 14:02:52,061", "name": "app.parser", "levelname": "WARNING", "message": "PDF detected but no text extracted; falling back to HTML parsing if possible."}
+{"asctime": "2025-08-08 14:02:52,476", "name": "app.parser", "levelname": "INFO", "message": "Successfully parsed the url https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:02:52,479", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 625477 characters."}
+{"asctime": "2025-08-08 14:02:52,491", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 14:02:52,656", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 14:02:52,671", "name": "app.main", "levelname": "INFO", "message": "Generated 834 text chunks."}
+{"asctime": "2025-08-08 14:04:20,532", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 14:04:20,535", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 14:04:20,537", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 14:04:20,537", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:04:32,086", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 14:04:32,087", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:04:53,029", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 14:04:53,031", "name": "app.parser", "levelname": "ERROR", "message": "PyPDF2 not installed. Please add it to requirements to parse PDFs."}
+{"asctime": "2025-08-08 14:04:53,032", "name": "app.parser", "levelname": "WARNING", "message": "PDF detected but no text extracted; falling back to HTML parsing if possible."}
+{"asctime": "2025-08-08 14:04:53,411", "name": "app.parser", "levelname": "INFO", "message": "Successfully parsed the url https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:04:53,413", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 625477 characters."}
+{"asctime": "2025-08-08 14:04:53,414", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 14:04:53,499", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 14:04:53,501", "name": "app.main", "levelname": "INFO", "message": "Generated 834 text chunks."}
+{"asctime": "2025-08-08 14:06:25,427", "name": "app.embedder", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 14:06:25,428", "name": "app.main", "levelname": "INFO", "message": "Generated 834 embeddings."}
+{"asctime": "2025-08-08 14:06:26,683", "name": "app.vector_store", "levelname": "INFO", "message": "Successfully upserted 834 vectors into Qdrant collection 'documents'."}
+{"asctime": "2025-08-08 14:06:26,688", "name": "app.main", "levelname": "INFO", "message": "Document chunks stored in vector store."}
+{"asctime": "2025-08-08 14:06:26,689", "name": "app.main", "levelname": "INFO", "message": "Processing question 1: What is the grace period for premium payment under the National Parivar Mediclaim Plus Policy?"}
+{"asctime": "2025-08-08 14:06:26,743", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:07:51,820", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:07:51,820", "name": "app.main", "levelname": "INFO", "message": "Answered question 1"}
+{"asctime": "2025-08-08 14:07:51,822", "name": "app.main", "levelname": "INFO", "message": "Processing question 2: What is the waiting period for pre-existing diseases (PED) to be covered?"}
+{"asctime": "2025-08-08 14:07:51,884", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:08:02,896", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:08:02,901", "name": "app.main", "levelname": "INFO", "message": "Answered question 2"}
+{"asctime": "2025-08-08 14:11:19,426", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 14:11:19,429", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 14:11:19,432", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 14:11:19,433", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:11:57,247", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 14:11:57,249", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:12:02,778", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 14:12:08,249", "name": "app.parser", "levelname": "INFO", "message": "Extracted text from PDF document"}
+{"asctime": "2025-08-08 14:12:08,250", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 113294 characters."}
+{"asctime": "2025-08-08 14:12:08,251", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 14:12:08,258", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 14:12:08,259", "name": "app.main", "levelname": "INFO", "message": "Generated 135 text chunks."}
+{"asctime": "2025-08-08 14:12:29,093", "name": "app.embedder", "levelname": "INFO", "message": "Generated 135 embeddings."}
+{"asctime": "2025-08-08 14:12:29,093", "name": "app.main", "levelname": "INFO", "message": "Generated 135 embeddings."}
+{"asctime": "2025-08-08 14:12:29,394", "name": "app.vector_store", "levelname": "INFO", "message": "Successfully upserted 135 vectors into Qdrant collection 'documents'."}
+{"asctime": "2025-08-08 14:12:29,396", "name": "app.main", "levelname": "INFO", "message": "Document chunks stored in vector store."}
+{"asctime": "2025-08-08 14:12:29,397", "name": "app.main", "levelname": "INFO", "message": "Processing question 1: What is the grace period for premium payment under the National Parivar Mediclaim Plus Policy?"}
+{"asctime": "2025-08-08 14:12:29,470", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:14:36,186", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:14:36,187", "name": "app.main", "levelname": "INFO", "message": "Answered question 1"}
+{"asctime": "2025-08-08 14:14:36,187", "name": "app.main", "levelname": "INFO", "message": "Processing question 2: What is the waiting period for pre-existing diseases (PED) to be covered?"}
+{"asctime": "2025-08-08 14:14:36,252", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:14:58,197", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:14:58,203", "name": "app.main", "levelname": "INFO", "message": "Answered question 2"}
+{"asctime": "2025-08-08 14:19:56,285", "name": "app.llm", "levelname": "INFO", "message": "Using OpenAI SDK >= 1.0"}
+{"asctime": "2025-08-08 14:19:56,289", "name": "app.vector_store", "levelname": "INFO", "message": "QdrantClient initialized (in-memory). Collection: documents"}
+{"asctime": "2025-08-08 14:19:56,290", "name": "app.vector_store", "levelname": "INFO", "message": "Qdrant collection 'documents' recreated/initialized."}
+{"asctime": "2025-08-08 14:19:56,290", "name": "app.main", "levelname": "INFO", "message": "Qdrant collection initialized successfully."}
+{"asctime": "2025-08-08 14:20:24,281", "name": "app.main", "levelname": "INFO", "message": "Received QA request with URL: https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D and 2 questions"}
+{"asctime": "2025-08-08 14:20:24,283", "name": "app.parser", "levelname": "INFO", "message": "Fetching document from https://hackrx.blob.core.windows.net/assets/policy.pdf?sv=2023-01-03&st=2025-07-04T09%3A11%3A24Z&se=2027-07-05T09%3A11%3A00Z&sr=b&sp=r&sig=N4a9OU0w0QXO6AOIBiu4bpl7AXvEZogeT%2FjUHNO7HzQ%3D"}
+{"asctime": "2025-08-08 14:20:27,865", "name": "app.parser", "levelname": "INFO", "message": "Parser fetched document successfully"}
+{"asctime": "2025-08-08 14:20:31,823", "name": "app.parser", "levelname": "INFO", "message": "Extracted text from PDF document"}
+{"asctime": "2025-08-08 14:20:31,825", "name": "app.main", "levelname": "INFO", "message": "Document parsed with 113294 characters."}
+{"asctime": "2025-08-08 14:20:31,826", "name": "app.chunker", "levelname": "INFO", "message": "Started chunking the text"}
+{"asctime": "2025-08-08 14:20:31,835", "name": "app.chunker", "levelname": "INFO", "message": "Successfully chunked the text"}
+{"asctime": "2025-08-08 14:20:31,836", "name": "app.main", "levelname": "INFO", "message": "Generated 135 text chunks."}
+{"asctime": "2025-08-08 14:20:54,437", "name": "app.embedder", "levelname": "INFO", "message": "Generated 135 embeddings."}
+{"asctime": "2025-08-08 14:20:54,438", "name": "app.main", "levelname": "INFO", "message": "Generated 135 embeddings."}
+{"asctime": "2025-08-08 14:20:54,653", "name": "app.vector_store", "levelname": "INFO", "message": "Successfully upserted 135 vectors into Qdrant collection 'documents'."}
+{"asctime": "2025-08-08 14:20:54,655", "name": "app.main", "levelname": "INFO", "message": "Document chunks stored in vector store."}
+{"asctime": "2025-08-08 14:20:54,656", "name": "app.main", "levelname": "INFO", "message": "Processing question 1: What is the grace period for premium payment under the National Parivar Mediclaim Plus Policy?"}
+{"asctime": "2025-08-08 14:20:54,704", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:23:29,191", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:23:29,396", "name": "app.main", "levelname": "INFO", "message": "Answered question 1"}
+{"asctime": "2025-08-08 14:23:29,397", "name": "app.main", "levelname": "INFO", "message": "Processing question 2: What is the waiting period for pre-existing diseases (PED) to be covered?"}
+{"asctime": "2025-08-08 14:23:30,097", "name": "app.embedder", "levelname": "INFO", "message": "Generated 1 embeddings."}
+{"asctime": "2025-08-08 14:23:36,867", "name": "app.llm", "levelname": "INFO", "message": "OpenAI response received."}
+{"asctime": "2025-08-08 14:23:36,869", "name": "app.main", "levelname": "INFO", "message": "Answered question 2"}
